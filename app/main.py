@@ -9,8 +9,9 @@ class Person:
 def create_person_list(people: list[dict]) -> list[dict]:
     for person_data in people:
         Person(name=person_data["name"], age=person_data["age"])
+
     for person_data in people:
-        if "wife" in person_data and person_data["wife"]:
+        if person_data.get("wife"):
             Person.people[person_data["name"]].wife = (
                 Person.people[person_data["wife"]])
             Person.people[person_data["wife"]].husband = Person.people[
